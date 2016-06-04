@@ -10,13 +10,8 @@
   <h1> PHOTO BOOTH </h1>
 </font>
 <font color=gray>
-   <h3>Pressing the button, the pictures are taken automatically after 3 seconds.</h3>
+   <h3>gallery</h3>
 </font>
-     <img src="http://localhost:8888/?action=stream" />
-
-    <form action="gall" method="post" name="next">
-		<button type="submit" > JOIN </button>
-	</form>
 </div>
 </body>
 </html>

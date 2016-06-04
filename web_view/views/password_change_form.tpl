@@ -1,7 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<title> photo booth - password change</title>
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<style>
+#back {
+background-image:url(pink.jpg);
+}
+<meta content="text/html; charset=utf-8" http-equiv="content-type"
+</style>
+<body id="back">
+<div style="text-align:center" >
+<font color=black>
+<h1> PHOTO BOOTH </h1>
+</font>
 <div class="box">
     <h2>Password change</h2>
     <p>Please insert your new password:</p>
@@ -11,10 +22,13 @@
 
         <br/><br/>
         <button type="submit" > OK </button>
-        <button type="button" class="close"> Cancel </button>
+       <form action="login" method="post">
+	<button type="submit" > Cancel </button>
+ </form>
     </form>
     <br />
 </div>
+</body>
 <style>
 div {
     color: #777;

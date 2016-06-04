@@ -1,29 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<title> photo booth </title>
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="content-type">
-<div id="hbox">
+<style>
+#back {
+background-image:url(pink.jpg);
+}
+<meta content="text/html; charset=utf-8" http-equiv="content-type"
+</style>
+<body id="back">
+<div style="text-align:center" >
+<font color=black>
+<h1> PHOTO BOOTH </h1>
+</font>
   <div class="box">
       <h2>Login</h2>
       <p>Please insert your credentials:</p>
+<table>
       <form action="login" method="post" name="login">
-          <input type="text" name="username" />
-          <input type="password" name="password" />
-
-          <br/><br/>
+          Username : <input type="text" name="username" />
+          password : <input type="password" name="password" />
           <button type="submit" > OK </button>
-          <button type="button" class="close"> Cancel </button>
       </form>
-      <br />
+</table>
+<table>
 	<form action="join_btn" method="post" name="join">
 		<button type="submit" > JOIN </button>
 	</form>
 	<form action="reset_passwd" method="post" name="reset_passwd">
 		<button type="submit" > SEARCH </button>
 	</form>
-  </div>
+</table>
+ </div>
   <br style="clear: left;" />
-</div>
 <style>
 div {
     color: #777;
@@ -40,3 +49,5 @@ input {
 }
 input:hover { background: #fefefe}
 </style>
+</body>
+</html>

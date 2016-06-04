@@ -14,16 +14,17 @@ from cork import Cork
 from cork.backends import SQLiteBackend
 import logging
 from bottle import template
+import os
 
 logging.basicConfig(format='localhost - - [%(asctime)s] %(message)s', level=logging.DEBUG)
 log = logging.getLogger(__name__)
 bottle.debug(True)
 
 def populate_backend():
-    b = SQLiteBackend('exampleSol.db', initialize=False)
+    b = SQLiteBackend('webUser.db', initialize=False)
 
     b.connection.executescript("""
-        SELECT * FROM USERS;
+       
     """)
     return b
 
@@ -56,6 +57,7 @@ def post_get(name, default=''):
 @bottle.post('/login')
 def login():
     """Authenticate users"""
+    os.system("sh /home/pi/Desktop/web_view/start_stream.sh")
     username = post_get('username')
     password = post_get('password')
     aaa.login(username, password, success_redirect='/', fail_redirect='/login')
@@ -79,7 +81,7 @@ def join_btn():
 def register():
     """Send out registration email"""
     aaa.register(post_get('username'), post_get('password'), post_get('email_address'))
-    return 'Please check your mailbox.'
+    return template('register.tpl')
 
 
 @bottle.route('/validate_registration/:registration_code')
@@ -122,6 +124,12 @@ def index():
     """Only authenticated users can see this"""
     aaa.require(fail_redirect='/login')
     return template('camera_form.tpl')
+
+@bottle.post('/gall')
+def gall():
+    os.system("sh /home/pi/Desktop/web_view/stop_stream.sh")
+    os.system("sh /home/pi/Desktop/web_view/picture.sh")
+    return template('gall_form.tpl')
 
 
 @bottle.route('/restricted_download')
@@ -216,3 +224,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

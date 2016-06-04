@@ -1,0 +1,1 @@
+sudo blueman sendto -d 00:1F:47:37:EE:48 /home/pi/Desktop/cap.jpg
